@@ -33,9 +33,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        
                     </ul>
-
+                        <p>検索ボックス</p>
+                        <p>投稿</p>
+                        <p>タイムライン</p>
+                        <p>マイページ</p>
+                        
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->

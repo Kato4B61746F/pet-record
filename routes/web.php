@@ -11,9 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 
@@ -21,8 +18,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/', function() {
-    return view('posts/index');
+    return view('pets/index');
 });
+
+Route::get('/pet-register', function() {
+    return view('pets/pet-register');
+});
+
 
 // Route::get('/', 'PostController@index')->middleware('auth');
 
