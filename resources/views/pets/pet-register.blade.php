@@ -12,9 +12,14 @@
     </head>
     <body>
         <h1>ペット登録画面</h1>
-        <div>
-            ペットの画像を登録する
-        </div>
+
+        <form action="{{ action('PetsController@create') }}" method="post" enctype="multipart/form-data">
+            <!-- アップロードフォームの作成 -->
+            <input type="file" name="image">
+            {{ csrf_field() }}
+            <input type="submit" value="アップロード">
+        </form>
+
         <div>
             ペットの名前を登録する
         </div>
