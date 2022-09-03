@@ -29,7 +29,7 @@ class PetsController extends Controller
 
       $post->save();
 
-      return redirect('pets/index');
+      return redirect('pets/pet-register');
   }
     public function index(Request $request)
   {
@@ -37,13 +37,4 @@ class PetsController extends Controller
   
     return view('pets.index', ['posts' => $posts]);
   }
-}
-
-
-
-
-
-class PostsController extends Controller
-{
-  
 }

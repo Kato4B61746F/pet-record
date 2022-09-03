@@ -16,23 +16,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-// Route::get('/', function() {
-//     return view('pets/index');
-// });
-
-Route::get('/pet-register', function() {
-    return view('pets/pet-register');
-});
-
-
-Route::get('/post/create', function() {
-    return view('post/create');
-});
-Route::post('/post/create', 'PostsController@create');
-
+Route::get('/post/create', 'PostsController@create');
 
 Route::get('/', 'PostsController@index');
+
+Route::post('/posts','PostsController@store');
 
 // Route::get('/', 'PostController@index')->middleware('auth');
 
