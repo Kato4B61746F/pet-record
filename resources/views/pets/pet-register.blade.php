@@ -2,34 +2,25 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>pet record</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
-        <h1>ペット登録画面</h1>
-
-        <form action="{{ action('PetsController@create') }}" method="post" enctype="multipart/form-data">
-            <!-- アップロードフォームの作成 -->
+        <form action="/posts" method="POST"  enctype="multipart/form-data">
+            @csrf
+            <div class="title">
+                <h2>名前</h2>
+                <input type="text" name="post[name]" placeholder="Taro"/>
+            </div>
+            
+            <div class="title">
+                <h2>年齢</h2>
+                <input type="number" name="post[age]" placeholder="1歳"/>
+            </div>
             <input type="file" name="image">
-            {{ csrf_field() }}
-            <input type="submit" value="アップロード">
+            
+            <select name="post[category_id]">
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <input type="submit" value="保存"/>
         </form>
-
-        <div>
-            ペットの名前を登録する
-        </div>
-        <div>
-            ペットの年齢を登録する
-        </div>
-        <div>
-            ペットのカテゴリーを登録する
-        </div>
-    </body>
-</html>
-
 @endsection
+
