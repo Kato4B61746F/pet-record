@@ -6,23 +6,23 @@ use Illuminate\Http\Request;
 
 use App\Pet;
 use Storage;
-
+use App\Category;
 
 class PetsController extends Controller
 {
   public function add()
   {
-      return view('post.create');
+      return view('pet.pet-register');
   }
 
   public function index(Request $request)
   {
-    $posts = Post::all();
+    $pets = Pet::all();
     
-    return view('post.index', ['posts' => $posts]);
+    return view('pets.index', ['pets' => $pets]);
   }
   
-  public function store(Request $request, Post $post, Category $category)
+  public function store(Request $request, Pet $pet, Category $category)
   {
   
       //s3アップロード開始
@@ -31,15 +31,15 @@ class PetsController extends Controller
       $path = Storage::disk('s3')->putFile('pet', $image, 'public');
       // アップロードした画像のフルパスを取得
  
-      $input = $request['post'];
-      $post->fill($input);
-      $post->image_path = Storage::disk('s3')->url($path);
-      $post->save();
-      return redirect('/');
+      $input = $request['pet'];
+      $pet->fill($input);
+      $pet->image_path = Storage::disk('s3')->url($path);
+      $pet->save();
+      return redirect('/pets/index');
   }
   
   public function create(Category $category)
   {
-      return view('post/create')->with(['categories' => $category->get()]);;
+      return view('pets/pet-register')->with(['categories' => $category->get()]);;
   }
 }
