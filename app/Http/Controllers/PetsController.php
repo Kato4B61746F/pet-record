@@ -15,10 +15,10 @@ class PetsController extends Controller
       return view('pet.pet-register');
   }
 
+
   public function index(Request $request)
   {
     $pets = Pet::all();
-    
     return view('pets.index', ['pets' => $pets]);
   }
   

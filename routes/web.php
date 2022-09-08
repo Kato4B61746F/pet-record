@@ -16,16 +16,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/post/create', 'PostsController@create');
+// Route::get('/post/create', 'PostsController@create');
 
-Route::get('/', 'PostsController@index');
+// Route::get('/', 'PostsController@index');
 
-Route::post('/posts','PostsController@store');
+// Route::post('/posts','PostsController@store');
 
 
 Route::get('/pets/pet-register', 'PetsController@create');
 
-Route::get('/pets/index', 'PetsController@index');
+Route::get('/', 'PetsController@index');
 
 Route::post('/pets','PetsController@store');
 // Route::get('/', 'PostController@index')->middleware('auth');
