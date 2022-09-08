@@ -12,29 +12,34 @@ class PetsController extends Controller
 {
   public function add()
   {
-      return view('pets.pet-register');
+      return view('post.create');
   }
 
-  public function create(Request $request)
+  public function index(Request $request)
   {
-      $post = new Post;
-      $form = $request->all();
-
+    $posts = Post::all();
+    
+    return view('post.index', ['posts' => $posts]);
+  }
+  
+  public function store(Request $request, Post $post, Category $category)
+  {
+  
       //s3アップロード開始
       $image = $request->file('image');
       // バケットの`myprefix`フォルダへアップロード
-      $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
+      $path = Storage::disk('s3')->putFile('pet', $image, 'public');
       // アップロードした画像のフルパスを取得
+ 
+      $input = $request['post'];
+      $post->fill($input);
       $post->image_path = Storage::disk('s3')->url($path);
-
       $post->save();
-
-      return redirect('pets/pet-register');
+      return redirect('/');
   }
-    public function index(Request $request)
-  {
-    $posts = Post::all();
   
-    return view('pets.index', ['posts' => $posts]);
+  public function create(Category $category)
+  {
+      return view('post/create')->with(['categories' => $category->get()]);;
   }
 }

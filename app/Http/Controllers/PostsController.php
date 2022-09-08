@@ -31,7 +31,6 @@ class PostsController extends Controller
       $path = Storage::disk('s3')->putFile('pet', $image, 'public');
       // アップロードした画像のフルパスを取得
  
-
       $input = $request['post'];
       $post->fill($input);
       $post->image_path = Storage::disk('s3')->url($path);
