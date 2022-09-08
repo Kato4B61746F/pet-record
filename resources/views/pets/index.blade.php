@@ -1,6 +1,7 @@
 @extends('layouts.app')　　　　　　　　　　　　　　　　　　
 
 @section('content')
+  <button><a href='/pets/pet-register'>ペットを登録する</a></button><br>
   @foreach($pets as $pet)
     @if ($pet->image_path)
       <!-- 画像を表示 -->
@@ -8,11 +9,7 @@
     @endif
   @endforeach
   
-  <h1>ペットが登録してある場合はペットの情報を表示</h1>
-        
-      
-
-
-        <h1>登録してない場合はボタンで登録ページへ遷移</h1>
-        <button><a href='/pets/pet-register'>ペットを登録する</a></button>
+  <h1>名前　{{$pet->name}}</h1>
+  <h1>年齢　{{$pet->age}}</h1>
+  <h1>種類　{{$pet->category->name}}</h1>
 @endsection
