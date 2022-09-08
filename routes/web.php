@@ -22,6 +22,12 @@ Route::get('/', 'PostsController@index');
 
 Route::post('/posts','PostsController@store');
 
+
+Route::get('/pets/pet-register', 'PetsController@create');
+
+Route::get('/pets/index', 'PetsController@index');
+
+Route::post('/pets','PetsController@store');
 // Route::get('/', 'PostController@index')->middleware('auth');
 
 // Route::get('/', 'PostController@index');
