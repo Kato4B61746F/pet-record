@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePetsTable extends Migration
+class CreatePetsDatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreatePetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pets', function (Blueprint $table) {
+        Schema::create('pets_datas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');    
-            $table->integer('age');
-            $table->integer('category_id')->unsigned();
-            // 画像のパスを保存するカラムを追加
-            $table->string('image_path')->nullable();
+            $table->string('diary');    
+            $table->integer('weight');
+            $table->string('food');    
+            $table->integer('pet_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreatePetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pets');
+        Schema::dropIfExists('pets_datas');
     }
 }

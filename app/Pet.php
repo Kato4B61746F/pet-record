@@ -18,6 +18,11 @@ class Pet extends Model
     {
         return $this->belongsTo('App\Category');
     }
+    
+    public function pets_data()   
+    {
+        return $this->hasOne('App\Pets_data');  
+    }
 }
 
 
