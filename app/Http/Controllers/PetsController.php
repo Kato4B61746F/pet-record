@@ -35,11 +35,15 @@ class PetsController extends Controller
       $pet->fill($input);
       $pet->image_path = Storage::disk('s3')->url($path);
       $pet->save();
-      return redirect('/pets/index');
+      return redirect('/pets/index/{{ $pet->id }}');
   }
+  
+  
   
   public function create(Category $category)
   {
       return view('pets/pet-register')->with(['categories' => $category->get()]);;
   }
+  
+
 }

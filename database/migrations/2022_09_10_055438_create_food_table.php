@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNameAgeCategoryIdToPetsTable extends Migration
+class CreateFoodTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AddNameAgeCategoryIdToPetsTable extends Migration
      */
     public function up()
     {
-        Schema::table('pets', function (Blueprint $table) {
-            $table->string('name');    
-            $table->integer('age');
-            $table->integer('category_id')->unsigned();
+        Schema::create('food', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('food');    
+            $table->integer('pet_id')->unsigned();
+            $table->timestamps();
         });
     }
 
@@ -27,8 +28,6 @@ class AddNameAgeCategoryIdToPetsTable extends Migration
      */
     public function down()
     {
-        Schema::table('pets', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('food');
     }
 }

@@ -23,11 +23,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('/posts','PostsController@store');
 
 
+
+
 Route::get('/pets/pet-register', 'PetsController@create');
 
 Route::get('/', 'PetsController@index');
 
+Route::get('/pets/{pet}', 'PetsController@index');
+
 Route::post('/pets','PetsController@store');
+
+Route::post('/pets_food','FoodController@store_food');
+
+// Route::post('/pets_food','Pets_dataController@store_food');
 // Route::get('/', 'PostController@index')->middleware('auth');
 
 // Route::get('/', 'PostController@index');

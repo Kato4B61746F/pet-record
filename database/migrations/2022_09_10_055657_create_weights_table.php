@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNameAgeToPostsTable extends Migration
+class CreateWeightsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddNameAgeToPostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-        $table->string('name');    
-        $table->integer('age');
+        Schema::create('weights', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('weight');
+            $table->integer('pet_id')->unsigned();
+            $table->timestamps();
         });
     }
 
@@ -26,8 +28,6 @@ class AddNameAgeToPostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('weights');
     }
 }
