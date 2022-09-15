@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Pets_data;
+use App\Pets;
 use App\Food;
 
-class Pets_dataController extends Controller
+class FoodController extends Controller
 {
     public function store_food(Request $request, Food $food)
   {

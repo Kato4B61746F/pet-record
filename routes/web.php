@@ -33,8 +33,9 @@ Route::get('/pets/{pet}', 'PetsController@index');
 
 Route::post('/pets','PetsController@store');
 
+Route::post('/pets_food','FoodController@store_food');
 
-Route::post('/pets_food','Pets_dataController@store_food');
+// Route::post('/pets_food','Pets_dataController@store_food');
 // Route::get('/', 'PostController@index')->middleware('auth');
 
 // Route::get('/', 'PostController@index');
