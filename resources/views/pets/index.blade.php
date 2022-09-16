@@ -52,22 +52,4 @@
       </select>
       <input type="submit" value="保存"/>
   </form>
-  
-  <!--  <form action="/pets_food" method="POST">-->
-  <!--    @csrf-->
-  <!--    <h2>日記</h2>-->
-  <!--    <textarea name="pets_data[diary]" placeholder="今日の出来事"></textarea>-->
-      
-  <!--    <h2>体重</h2>-->
-  <!--    <input type="number" name="pets_data[weight]" placeholder="3kg"/>-->
-
-  <!--    <h2>ご飯</h2>-->
-  <!--    <textarea name="pets_data[food]" placeholder="キャットフード150g"></textarea>-->
-  <!--    <select name="pets_data[pet_id]">-->
-  <!--    @foreach($pets as $pet)-->
-  <!--      <option value="{{ $pet->id }}">{{ $pet->name }}</option>-->
-  <!--    @endforeach-->
-  <!--    </select>-->
-  <!--    <input type="submit" value="保存"/>-->
-  <!--</form>-->
 @endsection

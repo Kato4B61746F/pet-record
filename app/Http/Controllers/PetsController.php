@@ -10,12 +10,6 @@ use App\Category;
 
 class PetsController extends Controller
 {
-  public function add()
-  {
-      return view('pet.pet-register');
-  }
-
-
   public function index(Request $request)
   {
     $pets = Pet::all();

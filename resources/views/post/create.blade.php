@@ -4,25 +4,19 @@
 
 
   
-        <form action="/posts" method="POST"  enctype="multipart/form-data">
+        <form action="post/store" method="POST"  enctype="multipart/form-data">
             @csrf
             <div class="title">
-                <h2>名前</h2>
-                <input type="text" name="post[name]" placeholder="Taro"/>
+                <h2>新規投稿</h2>
             </div>
-            
-            <div class="title">
-                <h2>年齢</h2>
-                <input type="number" name="post[age]" placeholder="1歳"/>
-            </div>
+           
             <input type="file" name="image">
             
-            <select name="post[category_id]">
-                @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
+            <select name="posts[pet_id]">  
+                  @foreach($pets as $pet)
+                    <option value="{{ $pet->id }}">{{ $pet->name }}</option>
+                  @endforeach
             </select>
             <input type="submit" value="保存"/>
         </form>
 @endsection
-
