@@ -35,6 +35,10 @@ Route::post('/pets','PetsController@store');
 
 Route::post('/pets_food','FoodController@store_food');
 
+Route::post('/pets_diary','DiaryController@store_diary');
+
+Route::post('/pets_weight','WeightController@store_weight');
+
 // Route::post('/pets_food','Pets_dataController@store_food');
 // Route::get('/', 'PostController@index')->middleware('auth');
 
