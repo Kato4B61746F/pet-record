@@ -8,14 +8,16 @@ class Post extends Model
 {
     //Categoryに対するリレーション
     protected $fillable = [
-        'name',
-        'age',
-        'category_id'
-        
+        'pet_id'
     ];
+    
+    
+    
     //「1対多」の関係なので単数系に
-    public function category()
+    public function pet()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Pet');
     }
+    
+    
 }

@@ -33,6 +33,11 @@ class Pet extends Model
     {
         return $this->hasMany('App\Weght');  
     }
+    
+    public function posts()   
+    {
+        return $this->hasMany('App\Post');  
+    }
 
     // public function pets_data()   
     // {
