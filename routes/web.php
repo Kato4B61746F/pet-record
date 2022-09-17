@@ -27,11 +27,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 // ペット登録
 Route::get('/pets/pet-register', 'PetsController@create');
 
-Route::get('/', 'PetsController@index');
-
 Route::get('/pets/{pet}', 'PetsController@index');
 
 Route::post('/pets','PetsController@store');
+
+// ペット情報表示
+Route::get('/', 'PetsController@index');
+
+
+
+
 
 // 詳細投稿
 Route::post('/pets_food','FoodController@store_food');

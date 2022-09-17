@@ -1,7 +1,6 @@
 @extends('layouts.app')　　　　　　　　　　　　　　　　　　
 
 @section('content')
-  <button><a href='/pets/pet-register'>ペットを登録する</a></button><br>
   @foreach($pets as $pet)
     @if ($pet->image_path)
       <!-- 画像を表示 -->
@@ -27,6 +26,10 @@
       <input type="submit" value="保存"/>
   </form>
   
+  @foreach($foods as $food)
+   <p> {{ $food->food }}</p>
+  @endforeach
+  
   <form action="/pets_weight" method="POST">
       @csrf
 
@@ -39,6 +42,10 @@
       </select>
       <input type="submit" value="保存"/>
   </form>
+  
+  @foreach($weights as $weight)
+   <p> {{ $weight->weight }}kg</p>
+  @endforeach
 
   <form action="/pets_diary" method="POST">
       @csrf
@@ -52,4 +59,9 @@
       </select>
       <input type="submit" value="保存"/>
   </form>
+  
+  @foreach($diaries as $diary)
+   <p> {{ $diary->diary }}</p>
+  @endforeach  
+  
 @endsection
