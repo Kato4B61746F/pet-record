@@ -45,6 +45,9 @@ Route::get('/post', 'PostsController@create');
 
 Route::post('/post/store','PostsController@store');
 
+// 投稿表示
+Route::get('/post/index', 'PostsController@index');
+
 // Route::post('/pets_food','Pets_dataController@store_food');
 // Route::get('/', 'PostController@index')->middleware('auth');
 

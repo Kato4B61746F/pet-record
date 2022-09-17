@@ -36,9 +36,10 @@
                         
                     </ul>
                         <p>検索ボックス</p>
-                        <p>投稿</p>
-                        <p>タイムライン</p>
-                        <p>マイページ</p>
+                          <button><a href='/post'>投稿</a></button><br>
+                        <button><a href='/post/index'>タイムライン</a></button><br>
+                            <button><a href='/pets/pet-register'>ペットを登録する</a></button><br>
+                              <button><a href='/'>マイページ</a></button><br>
                         
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

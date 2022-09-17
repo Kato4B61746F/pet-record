@@ -11,13 +11,11 @@ use App\Pet;
 class PostsController extends Controller
 {
 
-  // public function index(Request $request)
-  // {
-  //   // $posts = Post::all();
-    
-  //   // return view('post.index', ['posts' => $posts]);
-  //   return view('post.create');
-  // }
+  public function index(Request $request)
+  {
+    $posts = Post::all();
+    return view('post.index', ['posts' => $posts]);
+  }
   
   public function store(Request $request, Post $post, Pet $pet)
   {
