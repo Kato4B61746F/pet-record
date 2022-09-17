@@ -7,13 +7,20 @@ use Illuminate\Http\Request;
 use App\Pet;
 use Storage;
 use App\Category;
+use App\Food;
+use App\Weight;
+use App\Diary;
 
 class PetsController extends Controller
 {
   public function index(Request $request)
   {
     $pets = Pet::all();
-    return view('pets.index', ['pets' => $pets]);
+    $foods = Food::all();
+    $weights = Weight::all();
+    $diaries = Diary::all();
+    
+    return view('pets.index', ['pets' => $pets, 'foods' => $foods, 'weights' => $weights, 'diaries' => $diaries]);
   }
   
   public function store(Request $request, Pet $pet, Category $category)

@@ -27,11 +27,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 // ペット登録
 Route::get('/pets/pet-register', 'PetsController@create');
 
-Route::get('/', 'PetsController@index');
-
 Route::get('/pets/{pet}', 'PetsController@index');
 
 Route::post('/pets','PetsController@store');
+
+// ペット情報表示
+Route::get('/', 'PetsController@index');
+
+
+
+
 
 // 詳細投稿
 Route::post('/pets_food','FoodController@store_food');
@@ -44,6 +49,9 @@ Route::post('/pets_weight','WeightController@store_weight');
 Route::get('/post', 'PostsController@create');
 
 Route::post('/post/store','PostsController@store');
+
+// 投稿表示
+Route::get('/post/index', 'PostsController@index');
 
 // Route::post('/pets_food','Pets_dataController@store_food');
 // Route::get('/', 'PostController@index')->middleware('auth');
