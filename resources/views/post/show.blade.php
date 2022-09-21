@@ -2,7 +2,12 @@
 
 @section('content')
 
-<h1>タイムライン</h1>
+<h1>詳細ページ</h1>
+
+
+
+
+    
   @foreach($posts as $post)
     @if ($post->image_path)
       <!-- 画像を表示 -->
@@ -10,5 +15,10 @@
       
     @endif
   @endforeach
+
+
+
+        
+
 
 @endsection

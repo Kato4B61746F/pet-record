@@ -40,6 +40,17 @@ class PostsController extends Controller
     return view('post.create', ['pets' => $pets]);
     // return view('post.create');
   }
+
+  public function show(Request $request, Post $post)
+  {
+      // $posts = Post::all();
+      // return view('post.show', ['posts' => $posts]);
+      $id = $post;
+      $posts = Post::find($id);
+      return view('post/show')->with(['posts' => $posts]);
+
+   //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
+  }
 }
 
 
