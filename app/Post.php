@@ -19,5 +19,10 @@ class Post extends Model
         return $this->belongsTo('App\Pet');
     }
     
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+    
     
 }

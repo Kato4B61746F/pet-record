@@ -54,6 +54,11 @@ Route::post('/post/store','PostsController@store');
 Route::get('/post/index', 'PostsController@index');
 
 
+
+
+//投稿コメント作成　表示
+Route::post('/post/store_comment','PostsController@store_comment');
+
 // 投稿詳細表示
 Route::get('/post/{post}', 'PostsController@show');
 // Route::get('/post/{post}', [PostsController::class ,'show']);

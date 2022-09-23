@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use Storage;
 use App\Pet;
+use App\Comment;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -43,14 +45,24 @@ class PostsController extends Controller
 
   public function show(Request $request, Post $post)
   {
-      // $posts = Post::all();
-      // return view('post.show', ['posts' => $posts]);
+    
+      
+      $user=$request->user();
       $id = $post;
+      $comments = Comment::find($id);
       $posts = Post::find($id);
-      return view('post/show')->with(['posts' => $posts]);
+      return view('post/show')->with(['posts' => $posts, 'user' => $user, 'comments' => $comments]);
 
    //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
   }
+  
+    public function store_comment(Request $request, Comment $comment, Post $post, User $user)
+  {
+      $input = $request['comments'];
+      $comment->fill($input)->save();
+      return back();
+  }
+
 }
 
 
