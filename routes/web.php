@@ -14,7 +14,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 // Route::get('/post/create', 'PostsController@create');
 
@@ -32,7 +32,7 @@ Route::get('/pets/{pet}', 'PetsController@index');
 Route::post('/pets','PetsController@store');
 
 // ペット情報表示
-Route::get('/', 'PetsController@index');
+Route::get('/index', 'PetsController@index');
 
 
 // 詳細投稿
