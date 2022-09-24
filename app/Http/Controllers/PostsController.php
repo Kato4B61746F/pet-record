@@ -24,7 +24,7 @@ class PostsController extends Controller
   
       //s3アップロード開始
       $image = $request->file('image');
-      // バケットの`myprefix`フォルダへアップロード
+      // バケットの`post`フォルダへアップロード
       $path = Storage::disk('s3')->putFile('post', $image, 'public');
       // アップロードした画像のフルパスを取得
  
@@ -38,22 +38,15 @@ class PostsController extends Controller
   public function create(Request $request)
   {
     $pets = Pet::all();
-    
     return view('post.create', ['pets' => $pets]);
-    // return view('post.create');
   }
 
   public function show(Request $request, Post $post)
   {
-    
-      
       $user=$request->user();
-      $id = $post;
-      $comments = Comment::find($id);
-      $posts = Post::find($id);
-      return view('post/show')->with(['posts' => $posts, 'user' => $user, 'comments' => $comments]);
-
-   //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
+      $comments = Comment::wherePost_id($post->id)->get();
+      $post = Post::find($post->id);
+      return view('post/show')->with(['post' => $post, 'user' => $user, 'comments' => $comments]);
   }
   
     public function store_comment(Request $request, Comment $comment, Post $post, User $user)

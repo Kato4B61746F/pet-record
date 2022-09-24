@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    ペットRecord
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -35,11 +35,11 @@
                     <ul class="navbar-nav mr-auto">
                         
                     </ul>
-                        <p>検索ボックス</p>
-                          <button><a href='/post'>投稿</a></button><br>
-                        <button><a href='/post/index'>タイムライン</a></button><br>
-                            <button><a href='/pets/pet-register'>ペットを登録する</a></button><br>
-                              <button><a href='/'>マイページ</a></button><br>
+               
+                        <button type="button" class="btn btn-outline-primary mx-2"><a href='/post'>投稿</a></button><br>
+                        <button type="button" class="btn btn-outline-primary mx-2"><a href='/post/index'>タイムライン</a></button><br>
+                        <button type="button" class="btn btn-outline-primary mx-2"><a href='/pets/pet-register'>ペットを登録する</a></button><br>
+                        <button type="button" class="btn btn-outline-primary mx-2"><a href='/'>マイページ</a></button><br>
                         
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

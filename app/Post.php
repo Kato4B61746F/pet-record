@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //Categoryに対するリレーション
+    
     protected $fillable = [
         'pet_id'
     ];
