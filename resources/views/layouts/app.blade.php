@@ -32,15 +32,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        
-                    </ul>
-               
-                        <button type="button" class="btn btn-outline-primary mx-2"><a href='/post'>投稿</a></button><br>
-                        <button type="button" class="btn btn-outline-primary mx-2"><a href='/post/index'>タイムライン</a></button><br>
-                        <button type="button" class="btn btn-outline-primary mx-2"><a href='/pets/pet-register'>ペットを登録する</a></button><br>
-                        <button type="button" class="btn btn-outline-primary mx-2"><a href='/'>マイページ</a></button><br>
-                        
+                    <ul class="navbar-nav m-auto">
+                        <button type="button" class="btn btn-light mx-2"><a href='/post' class="black">投稿</a></button><br>
+                        <button type="button" class="btn btn-light mx-2"><a href='/post/index'>タイムライン</a></button><br>
+                        <button type="button" class="btn btn-light mx-2"><a href='/pets/pet-register'>ペットを登録する</a></button><br>
+                        <button type="button" class="btn btn-light mx-2"><a href='/'>マイページ</a></button><br>
+                    </ul>   
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
