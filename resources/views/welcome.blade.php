@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -11,10 +10,10 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
+         Fonts 
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+         Styles 
         <style>
             html, body {
                 background-color: #fff;
