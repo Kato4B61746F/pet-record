@@ -4,23 +4,31 @@
 
         <form action="/pets" method="POST"  enctype="multipart/form-data">
             @csrf
-            <div class="title">
-                <h2>名前</h2>
+            <div class="card" style="width:18rem; margin: auto; ">
+                
+            
+            <div class="card-title" style="margin: 1rem">
+                <h2>Name</h2>
                 <input type="text" name="pet[name]" placeholder="Taro"/>
             </div>
             
-            <div class="title">
+            <div class="card-title" style="margin:1rem">
                 <h2>年齢</h2>
                 <input type="number" name="pet[age]" placeholder="1歳"/>
             </div>
-            <input type="file" name="image">
             
-            <select name="pet[category_id]">
+    
+              <input type="file" style="margin:1rem" name="image" >
+              <!--<button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button>-->
+            
+            <div style="margin:1rem">
+            <select class="form-select" name="pet[category_id]">
                 @foreach($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
-            <input type="submit" value="保存"/>
+            <button type="submit" class="btn btn-primary　m-1">保存</button>
+            </div>
+            </div>
         </form>
 @endsection
-

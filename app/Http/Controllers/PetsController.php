@@ -15,10 +15,11 @@ class PetsController extends Controller
 {
   public function index(Request $request)
   {
-    $pets = Pet::all();
-    $foods = Food::all();
-    $weights = Weight::all();
-    $diaries = Diary::all();
+    $user=$request->user();
+    $pets = Pet::whereId($user->id)->get();
+    $foods = Food::wherePet_id($user->id)->get();
+    $weights = Weight::wherePet_id($user->id)->get();
+    $diaries = Diary::wherePet_id($user->id)->get();
     
     return view('pets.index', ['pets' => $pets, 'foods' => $foods, 'weights' => $weights, 'diaries' => $diaries]);
   }
