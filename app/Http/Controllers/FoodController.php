@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Pets;
+use App\Petsdata;
 use App\Food;
 
 class FoodController extends Controller
@@ -15,4 +15,10 @@ class FoodController extends Controller
       $food->fill($input)->save();
       return redirect('/pets/{{ $pet->id }}');
   }
+  
+    public function delete(Food $food)
+    {
+        $food->delete();
+        return redirect('/index');
+    }
 }

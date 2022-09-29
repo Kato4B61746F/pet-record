@@ -27,7 +27,13 @@
       <div class="card" style=" overflow: scroll;">
         @foreach($foods as $food)
           <ul class="list-group list-group-flush ">
-            <li class="list-group-item">{{ $food->food }}</li>
+            <li class="list-group-item">{{ $food->food }}
+              <form action="/pets_food/{{ $food->id }}" id="form_{{ $food->id }}" method="post" style="display:inline">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit">delete</button> 
+              </form>
+            </li>
           </ul>
         @endforeach
       </div>

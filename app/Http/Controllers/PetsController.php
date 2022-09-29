@@ -37,7 +37,7 @@ class PetsController extends Controller
       $pet->fill($input);
       $pet->image_path = Storage::disk('s3')->url($path);
       $pet->save();
-      return redirect('/pets/index/{{ $pet->id }}');
+      return redirect('/pets/index');
   }
   
   
