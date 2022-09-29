@@ -2,21 +2,16 @@
 
 @section('content')
 
-
-  
         <form action="post/store" method="POST"  enctype="multipart/form-data">
             @csrf
-            <div class="title">
-                <h2>新規投稿</h2>
+            <div class="card" style="width:18rem; margin: auto; ">
+                <div class="card-header">
+                    新規投稿を作成
+                </div>
+                <input type="file" style="margin:1rem" name="image" >
+                <input type="hidden" name="posts[pet_id]" >
+                <button type="submit" class="btn btn-primary　m-1">投稿する</button>
             </div>
-           
-            <input type="file" name="image">
-            
-            <select name="posts[pet_id]">  
-                  @foreach($pets as $pet)
-                    <option value="{{ $pet->id }}">{{ $pet->name }}</option>
-                  @endforeach
-            </select>
-            <input type="submit" value="保存"/>
         </form>
+        
 @endsection
