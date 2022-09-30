@@ -32,14 +32,14 @@ class PostsController extends Controller
       $post->fill($input);
       $post->image_path = Storage::disk('s3')->url($path);
       $post->save();
-      return redirect('/');
+      return redirect('/post/index');
   }
   
   public function create(Request $request)
   {
     $user=$request->user();
-    $pets = Pet::whereId($user->id)->get();
-    return view('post.create', ['pets' => $pets]);
+    $pet = Pet::whereId($user->id)->first();
+    return view('post.create', ['pet' => $pet]);
   }
 
   public function show(Request $request, Post $post)

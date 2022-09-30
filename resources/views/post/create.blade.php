@@ -9,7 +9,7 @@
                     新規投稿を作成
                 </div>
                 <input type="file" style="margin:1rem" name="image" >
-                <input type="hidden" name="posts[pet_id]" >
+                <input type="hidden" name="posts[pet_id]" value="{{ $pet->id }}">
                 <button type="submit" class="btn btn-primary　m-1">投稿する</button>
             </div>
         </form>
