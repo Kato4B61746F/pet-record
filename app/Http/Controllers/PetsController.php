@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Pet;
 use Storage;
@@ -15,11 +16,11 @@ class PetsController extends Controller
 {
   public function index(Request $request)
   {
-    $user=$request->user();
-    $pets = Pet::whereId($user->id)->get();
-    $foods = Food::wherePet_id($user->id)->get();
-    $weights = Weight::wherePet_id($user->id)->get();
-    $diaries = Diary::wherePet_id($user->id)->get();
+    $id = Auth::id();
+    $pets = Pet::whereId($id)->get();
+    $foods = Food::wherePet_id($id)->get();
+    $weights = Weight::wherePet_id($id)->get();
+    $diaries = Diary::wherePet_id($id)->get();
     
     return view('pets.index', ['pets' => $pets, 'foods' => $foods, 'weights' => $weights, 'diaries' => $diaries]);
   }

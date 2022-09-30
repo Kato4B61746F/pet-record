@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Post;
 use Storage;
@@ -37,14 +38,14 @@ class PostsController extends Controller
   
   public function create(Request $request)
   {
-    $user=$request->user();
-    $pet = Pet::whereId($user->id)->first();
+    $id = Auth::id();
+    $pet = Pet::whereId($id)->first();
     return view('post.create', ['pet' => $pet]);
   }
 
   public function show(Request $request, Post $post)
   {
-      $user=$request->user();
+      $user = Auth::user();
       $comments = Comment::wherePost_id($post->id)->get();
       $post = Post::find($post->id);
       return view('post/show')->with(['post' => $post, 'user' => $user, 'comments' => $comments]);
