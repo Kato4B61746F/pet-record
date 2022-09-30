@@ -15,4 +15,10 @@ class WeightController extends Controller
       $weight->fill($input)->save();
       return redirect('/pets/{{ $pet->id }}');
   }
+  
+    public function delete(Weight $weight)
+  {
+      $weight->delete();
+      return redirect('/index');
+  }
 }
