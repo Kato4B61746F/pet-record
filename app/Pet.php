@@ -9,7 +9,9 @@ class Pet extends Model
     protected $fillable = [
         'name',
         'age',
-        'category_id'
+        'image_path',
+        'category_name',
+        'user_id',
     ];
     
     //「1対多」の関係なので単数系に

@@ -13,12 +13,12 @@ class DiaryController extends Controller
     {
         $input = $request['diaries'];
         $diary->fill($input)->save();
-        return redirect('/pets/{{ $pet->id }}');
+        return redirect('/pets/index');
     }
   
     public function delete(Diary $diary)
     {
         $diary->delete();
-        return redirect('/index');
+        return redirect('/pets/index');
     }
 }

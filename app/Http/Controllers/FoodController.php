@@ -13,12 +13,12 @@ class FoodController extends Controller
   {
       $input = $request['food'];
       $food->fill($input)->save();
-      return redirect('/pets/{{ $pet->id }}');
+      return redirect('/pets/index');
   }
   
     public function delete(Food $food)
     {
         $food->delete();
-        return redirect('/index');
+        return redirect('/pets/index');
     }
 }

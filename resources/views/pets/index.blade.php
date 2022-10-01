@@ -5,15 +5,11 @@
   
 
   <div class="card" style="width: 18rem; margin-left:1rem;">
-    @foreach($pets as $pet)
-      @if ($pet->image_path)
         <img src="{{ $pet->image_path }}" class="card-img-top" alt="pet_picture" style="width: 18rem; height: auto;">
-      @endif
-    @endforeach
     <div class="card-body">
       <h5 class="card-title">Name  {{$pet->name}}</h5>
       <p class="card-text">Age  {{$pet->age}}</p>
-      <p class="card-text">Type　{{$pet->category->name}}</p>
+      <p class="card-text">Type　{{$pet->category_name}}</p>
     </div>
   </div>
   <!--<div style="flex-flow: column; mb-3;">-->

@@ -25,14 +25,16 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 // ペット登録
-Route::get('/pets/pet-register', 'PetsController@create');
+Route::get('/pet/create', 'PetsController@create');
 
 // Route::get('/pets/{pet}', 'PetsController@index');
 
-Route::post('/pets','PetsController@store');
+Route::post('/pet/store','PetsController@store');
 
 // ペット情報表示
-Route::get('/index', 'PetsController@index');
+Route::get('/pets/index', 'PetsController@index');
+
+Route::get('/pets/{pet}', 'PetsController@index');
 
 // 詳細情報削除
 Route::delete('/pets_food/{food}', 'FoodController@delete');

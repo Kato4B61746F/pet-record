@@ -14,18 +14,23 @@ use App\Diary;
 
 class PetsController extends Controller
 {
-  public function index(Request $request)
+  public function index(Request $request, Pet $pet)
   {
+    // dd($pet);
     $id = Auth::id();
-    $pets = Pet::whereId($id)->get();
-    $foods = Food::wherePet_id($id)->get();
-    $weights = Weight::wherePet_id($id)->get();
-    $diaries = Diary::wherePet_id($id)->get();
+    if(Pet::whereUser_id($id)->first() == null){
+      return view('pets/pet-register', ['id' => $id]);
+    }
+    $pet = Pet::whereUser_id($id)->first();
     
-    return view('pets.index', ['pets' => $pets, 'foods' => $foods, 'weights' => $weights, 'diaries' => $diaries]);
+    $foods = Food::wherePet_id($pet->id)->get();
+    $weights = Weight::wherePet_id($pet->id)->get();
+    $diaries = Diary::wherePet_id($pet->id)->get();
+    
+    return view('pets/index', ['pet' => $pet, 'foods' => $foods, 'weights' => $weights, 'diaries' => $diaries]);
   }
   
-  public function store(Request $request, Pet $pet, Category $category)
+  public function store(Request $request, Pet $pet)
   {
   
       //s3アップロード開始
@@ -38,15 +43,23 @@ class PetsController extends Controller
       $pet->fill($input);
       $pet->image_path = Storage::disk('s3')->url($path);
       $pet->save();
-      return redirect('/pets/index');
+      return redirect('/pets/index/');
   }
   
   
   
-  public function create(Category $category)
-  {
-      return view('pets/pet-register')->with(['categories' => $category->get()]);;
-  }
+  // public function create(Request $request, Category $category)
+  // // {
+  // //     $id = Auth::id();
+  // //     if (Pet::whereId($id)->first() != null){
+  // //       $pet = Pet::whereId($id)->first();
+  // //       $foods = Food::wherePet_id($id)->get();
+  // //       $weights = Weight::wherePet_id($id)->get();
+  // //       $diaries = Diary::wherePet_id($id)->get();
+  // //       return view('pets/index', ['pet' => $pet, 'foods' => $foods, 'weights' => $weights, 'diaries' => $diaries]);;
+  // //     }
+  // //     return view('pets/pet-register', ['id' => $id]);
+  // }
   
 
 }

@@ -35,8 +35,8 @@
                     <ul class="navbar-nav m-auto">
                         <button type="button" class="btn btn-light mx-2"><a href='/post' class="black">投稿</a></button><br>
                         <button type="button" class="btn btn-light mx-2"><a href='/post/index'>タイムライン</a></button><br>
-                        <button type="button" class="btn btn-light mx-2"><a href='/pets/pet-register'>ペットを登録する</a></button><br>
-                        <button type="button" class="btn btn-light mx-2"><a href='/index'>マイページ</a></button><br>
+                        <!--<button type="button" class="btn btn-light mx-2"><a href='/pet/create'>ペットを登録する</a></button><br>-->
+                        <button type="button" class="btn btn-light mx-2"><a href='/pets/index'>マイページ</a></button><br>
                     </ul>   
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

@@ -39,7 +39,7 @@ class PostsController extends Controller
   public function create(Request $request)
   {
     $id = Auth::id();
-    $pet = Pet::whereId($id)->first();
+    $pet = Pet::whereUser_id($id)->first();
     return view('post.create', ['pet' => $pet]);
   }
 

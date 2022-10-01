@@ -17,7 +17,8 @@ class CreatePetsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');    
             $table->integer('age');
-            $table->integer('category_id')->unsigned();
+            // $table->integer('category_id')->unsigned();
+            $table->string('category_name');
             // 画像のパスを保存するカラムを追加
             $table->string('image_path')->nullable();
             $table->timestamps();

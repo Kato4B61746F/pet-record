@@ -13,12 +13,12 @@ class WeightController extends Controller
   {
       $input = $request['weights'];
       $weight->fill($input)->save();
-      return redirect('/pets/{{ $pet->id }}');
+      return redirect('/pets/index');
   }
   
     public function delete(Weight $weight)
   {
       $weight->delete();
-      return redirect('/index');
+      return redirect('/pets/index');
   }
 }
