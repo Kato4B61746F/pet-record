@@ -1,5 +1,5 @@
 <h1>ペットレコード</h1>
-<h2>URL : <a>https://pet-record.herokuapp.com/</a><h2/>
+<h2>URL : <h2/>https://pet-record.herokuapp.com/
 
 <h2>使い方<h2>
 <p>ログイン方法 : メールアドレス,パスワード</p>
